@@ -43,6 +43,7 @@ void Menu::showQueueMenu()
 			break;
 		case 2:
 			queue->removeFromQueue();
+			cout << "Данные о студенте успешно удалены!" << endl;
 			break;
 		case 3:
 			queue->printQueue();
@@ -63,16 +64,17 @@ void Menu::showStackMenu()
 		cout << "3 - Вывод данных" << endl;
 		cout << "0 - Назад" << endl;
 		int choice = Validator::getIntVar(0, 6);
-		StudentStack stack;
+		StudentStack* stack = StudentStack::getInstance();
 		switch (choice) {
 		case 1:
-			stack.addToStack(inputStudent());
+			stack->addToStack(inputStudent());
 			break;
 		case 2:
-			stack.removeFromStack();
+			stack->removeFromStack();
+			cout << "Данные о студенте успешно удалены!" << endl;
 			break;
 		case 3:
-			stack.printStack();
+			stack->printStack();
 			break;
 		case 0:
 			return;
@@ -90,16 +92,17 @@ void Menu::showPriorityQueueMenu()
 		cout << "3 - Вывод данных" << endl;
 		cout << "0 - Назад" << endl;
 		int choice = Validator::getIntVar(0, 6);
-		StudentPriorityQueue pq;
+		StudentPriorityQueue* pq = StudentPriorityQueue::getInstance();
 		switch (choice) {
 		case 1:
-			pq.addToPriorityQueue(inputStudent());
+			pq->addToPriorityQueue(inputStudent());
 			break;
 		case 2:
-			pq.removeFromPriorityQueue();
+			pq->removeFromPriorityQueue();
+			cout << "Данные о студенте успешно удалены!" << endl;
 			break;
 		case 3:
-			pq.printPriorityQueue();
+			pq->printPriorityQueue();
 			break;
 		case 0:
 			return;
