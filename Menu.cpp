@@ -36,16 +36,16 @@ void Menu::showQueueMenu()
 		cout << "3 - Вывод данных" << endl;
 		cout << "0 - Назад" << endl;
 		int choice = Validator::getIntVar(0, 6);
-		StudentQueue queue;
+		StudentQueue* queue = StudentQueue::getInstance();
 		switch (choice) {
 		case 1:
-			queue.addToQueue(inputStudent());
+			queue->addToQueue(inputStudent());
 			break;
 		case 2:
-			queue.removeFromQueue();
+			queue->removeFromQueue();
 			break;
 		case 3:
-			queue.printQueue();
+			queue->printQueue();
 			break;
 		case 0:
 			return;

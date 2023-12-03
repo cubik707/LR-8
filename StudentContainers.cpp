@@ -1,5 +1,24 @@
 #include "StudentContainers.h"
 
+StudentQueue* StudentQueue::instance = nullptr;
+
+StudentQueue* StudentQueue::getInstance()
+{
+    if (!instance) {
+        instance = new StudentQueue();
+    }
+    return instance;
+
+}
+
+StudentQueue::~StudentQueue()
+{
+    if (instance) {
+        delete instance;
+        instance = nullptr;
+    }
+}
+
 void StudentQueue::addToQueue(const Student& student)
 {
 	students.push(student);
@@ -89,6 +108,24 @@ void StudentQueue::writeInFile()
     {
         cerr << e.what() << endl;
         exit(0);
+    }
+}
+
+StudentStack* StudentStack::instance = nullptr;
+
+StudentStack* StudentStack::getInstance()
+{
+    if (!instance) {
+        instance = new StudentStack();
+    }
+    return instance;
+}
+
+StudentStack::~StudentStack()
+{
+    if (instance) {
+        delete instance;
+        instance = nullptr;
     }
 }
 
@@ -182,6 +219,24 @@ void StudentStack::writeInFile()
     {
         cerr << e.what() << endl;
         exit(0);
+    }
+}
+
+StudentPriorityQueue* StudentPriorityQueue::instance = nullptr;
+
+StudentPriorityQueue* StudentPriorityQueue::getInstance()
+{
+    if (!instance) {
+        instance = new StudentPriorityQueue();
+    }
+    return instance;
+}
+
+StudentPriorityQueue::~StudentPriorityQueue()
+{
+    if (instance) {
+        delete instance;
+        instance = nullptr;
     }
 }
 
